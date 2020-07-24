@@ -43,22 +43,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         RESET,  RGBRST, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,\
       RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,\
       RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,\
-                                          _______, _______, _______,   _______, _______, _______ \
+                                          _______, _______, _______,    _______, _______, _______ \
   ),
 
   [_NUM] = LAYOUT( \
-    _______,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,\
-    _______,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,                      KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, XXXXXXX, XXXXXXX,\
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                       KC_DEL,  KC_ESC, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,\
-                                        _______, _______, OSL(_LEDS), _______, _______, _______ \
+    _______,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,\
+    _______,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,                       KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, XXXXXXX, XXXXXXX,\
+    _______, KC_PPLS, KC_PMNS, KC_PAST, KC_PSLS, KC_PEQL,                        KC_DEL,  KC_ESC, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,\
+                                        _______, _______, OSL(_LEDS),  _______, _______, _______ \
   ),
 
   [_SYM] = LAYOUT( \
-    _______,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                      KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC, XXXXXXX,\
-    _______,   KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,                      KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, XXXXXXX,\
-    _______,  KC_F11,  KC_F12, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_TILD, KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR, XXXXXXX,\
-                                        _______, _______, _______, OSL(_LEDS), _______, _______ \
-
+    _______,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                        KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC, XXXXXXX,\
+    _______,   KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,                        KC_CIRC, KC_AMPR,  KC_GRV, KC_LPRN, KC_RPRN, XXXXXXX,\
+    _______,  KC_F11,  KC_F12, XXXXXXX, XXXXXXX, XXXXXXX,                        KC_TILD, KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR, XXXXXXX,\
+                                        _______, _______, _______,   OSL(_LEDS), _______, _______ \
   )
 };
 

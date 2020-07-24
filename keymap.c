@@ -15,14 +15,14 @@ extern uint8_t is_master;
 #define _QWERTY 0
 #define _NUM 1
 #define _SYM 2
-#define _ADJUST 3
+#define _LEDS 3
 
 
 enum custom_keycodes {
   QWERTY = SAFE_RANGE,
   NUM,
   SYM,
-  ADJUST,
+  LEDS,
   BACKLIT,
   RGBRST
 };
@@ -39,7 +39,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                     KC_LGUI, KC_LALT,  LT(_SYM, KC_SPC),   LT(_NUM, KC_ENT),  KC_BSPC, LCTL(KC_SPC) \
   ),
 
-  [_ADJUST] = LAYOUT( \
+  [_LEDS] = LAYOUT( \
         RESET,  RGBRST, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,\
       RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,\
       RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,\
@@ -50,14 +50,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,\
     _______,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,                      KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, XXXXXXX, XXXXXXX,\
     _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                       KC_DEL,  KC_ESC, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,\
-                                        _______, _______, OSL(_ADJUST), _______, _______, _______ \
+                                        _______, _______, OSL(_LEDS), _______, _______, _______ \
   ),
 
   [_SYM] = LAYOUT( \
     _______,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                      KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC, XXXXXXX,\
     _______,   KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,                      KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, XXXXXXX,\
     _______,  KC_F11,  KC_F12, XXXXXXX, XXXXXXX, XXXXXXX,                      KC_TILD, KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR, XXXXXXX,\
-                                        _______, _______, _______, OSL(_ADJUST), _______, _______ \
+                                        _______, _______, _______, OSL(_LEDS), _______, _______ \
 
   )
 };
@@ -69,7 +69,7 @@ void persistent_default_layer_set(uint16_t default_layer) {
   default_layer_set(default_layer);
 }
 
-// Setting ADJUST layer RGB back to default
+// Setting LEDS layer RGB back to default
 void update_tri_layer_RGB(uint8_t layer1, uint8_t layer2, uint8_t layer3) {
   if (IS_LAYER_ON(layer1) && IS_LAYER_ON(layer2)) {
     layer_on(layer3);
@@ -153,26 +153,26 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case NUM:
       if (record->event.pressed) {
         layer_on(_NUM);
-        update_tri_layer_RGB(_NUM, _SYM, _ADJUST);
+        update_tri_layer_RGB(_NUM, _SYM, _LEDS);
       } else {
         layer_off(_NUM);
-        update_tri_layer_RGB(_NUM, _SYM, _ADJUST);
+        update_tri_layer_RGB(_NUM, _SYM, _LEDS);
       }
       return false;
     case SYM:
       if (record->event.pressed) {
         layer_on(_SYM);
-        update_tri_layer_RGB(_NUM, _SYM, _ADJUST);
+        update_tri_layer_RGB(_NUM, _SYM, _LEDS);
       } else {
         layer_off(_SYM);
-        update_tri_layer_RGB(_NUM, _SYM, _ADJUST);
+        update_tri_layer_RGB(_NUM, _SYM, _LEDS);
       }
       return false;
-    case ADJUST:
+    case LEDS:
         if (record->event.pressed) {
-          layer_on(_ADJUST);
+          layer_on(_LEDS);
         } else {
-          layer_off(_ADJUST);
+          layer_off(_LEDS);
         }
         return false;
     case RGB_MOD:

@@ -12,7 +12,7 @@ extern uint8_t is_master;
 // The underscores don't mean anything - you can have a layer called STUFF or any other name.
 // Layer names don't all need to be of the same length, obviously, and you can also skip them
 // entirely and just use numbers.
-#define _QWERTY 0
+#define _BASE 0
 #define _NUM 1
 #define _SYM 2
 #define _LEDS 3
@@ -32,11 +32,11 @@ enum macro_keycodes {
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [_QWERTY] = LAYOUT( \
+  [_BASE] = LAYOUT( \
     KC_TAB,     KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  KC_MINS,\
     KC_LCTL,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,\
     KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_EQL,\
-                                    KC_LGUI, KC_LALT,  LT(_SYM, KC_SPC),   LT(_NUM, KC_ENT),  KC_BSPC, LCTL(KC_SPC) \
+                                    KC_LGUI, KC_LALT,  LT(_SYM, KC_SPC),   LT(_NUM, KC_ENT),  KC_BSPC, KC_ESC \
   ),
 
   [_LEDS] = LAYOUT( \
@@ -49,15 +49,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_NUM] = LAYOUT( \
     _______,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,\
     _______,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,                       KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, XXXXXXX, XXXXXXX,\
-    _______, KC_PPLS, KC_PMNS, KC_PAST, KC_PSLS, KC_PEQL,                        KC_DEL,  KC_ESC, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,\
+    _______, KC_PPLS, KC_PMNS, KC_PAST, KC_PSLS, KC_PEQL,                        KC_DEL, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,\
                                         _______, _______, OSL(_LEDS),  _______, _______, _______ \
   ),
 
   [_SYM] = LAYOUT( \
     _______,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                        KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC, XXXXXXX,\
-    _______,   KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,                        KC_CIRC, KC_AMPR,  KC_GRV, KC_LPRN, KC_RPRN, XXXXXXX,\
-    _______,  KC_F11,  KC_F12, XXXXXXX, XXXXXXX, XXXXXXX,                        KC_TILD, KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR, XXXXXXX,\
-                                        _______, _______, _______,   OSL(_LEDS), _______, _______ \
+    _______,   KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,                        KC_CIRC, KC_AMPR,  KC_GRV, KC_TILD, KC_BSLS, KC_PIPE,\
+    _______,  KC_F11,  KC_F12, XXXXXXX, XXXXXXX, XXXXXXX,                        KC_LPRN, KC_RPRN, KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR,\
+                                        _______, _______, _______,   OSL(_LEDS), LCTL(KC_SPC), _______ \
   )
 };
 
@@ -146,7 +146,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case QWERTY:
       if (record->event.pressed) {
-        persistent_default_layer_set(1UL<<_QWERTY);
+        persistent_default_layer_set(1UL<<_BASE);
       }
       return false;
     case NUM:

@@ -12,16 +12,15 @@ Corne Cherry の自分用キーマップです。
 |------+------+------+------+------+------|                  |------+------+------+------+------+------|
 | Shft |   Z  |   X  |   C  |   V  |   B  |                  |   N  |   M  | , <  | . >  | / ?  | = +  |
 `---------------------------+------+------+------.    .------+------+----------------------------------'
-                            |  ALT | GUI_T|  SYM |    |  NUM | SFT_T| Space|
+                            |  ALT | GUI_T|  SYM |    |  NUM | BSCP | Space|
                             `--------------------'    `--------------------'
 ```
 
-| Key   | Tap       | Hold      |
-| ----- | --------- | --------- |
-| NUM   | Enter     | NUM Layer |
-| SYM   | Space     | SYM Layer |
-| GUI_T | ESC       | Left GUI  |
-| SFT_T | BackSpace | Shift     |
+| Key   | Tap   | Hold      |
+| ----- | ----- | --------- |
+| NUM   | Enter | NUM Layer |
+| SYM   | Space | SYM Layer |
+| GUI_T | ESC   | Left GUI  |
 
 ## NUM
 

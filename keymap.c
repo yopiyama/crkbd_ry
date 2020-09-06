@@ -191,7 +191,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           RGB_current_mode = rgblight_config.mode;
         }
       #endif
-      break;
+    break;
   }
   return true;
 }
